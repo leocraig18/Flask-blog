@@ -117,7 +117,7 @@ gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=Fa
 db.create_all()
 
 
-@app.route('/')
+@app.route('/', methods=["GET"])
 def get_all_posts():
     posts = BlogPost.query.all()
     return render_template("index.html", all_posts=reversed(posts), logged_in=current_user.is_authenticated)
